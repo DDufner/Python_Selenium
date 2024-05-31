@@ -35,7 +35,8 @@ driver.get("https://opensource-demo.orangehrmlive.com/")
 # find_element() VS find_elements()
 # find_element() finds single element.  can also be used to select multiple web elements if the identifier is generic
 #     to return multiple.  will throw 'NoSuchElementException' if element is not found.
-# find_elements() creates list of elements, even if there is only a single element.  need to assign to variable to
-#     create list variable that can be printed, iterated through.  
+# find_elements() creates list of elements, even if there is only a single element or no items at all.
+#     will not return error if no elements found.  need to assign to variable to create list variable that can be
+#     printed, iterated through.
 
 
