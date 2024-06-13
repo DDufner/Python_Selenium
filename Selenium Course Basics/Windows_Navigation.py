@@ -22,5 +22,11 @@ childWindow = windowIDs[1]
 driver.switch_to.window(childWindow)
 time.sleep(5)
 driver.switch_to.window(parentWindow)
+#driver.close()
 time.sleep(2)
+
+for wID in windowIDs:
+    driver.switch_to.window(wID)
+    print("page: ", driver.title)
+
 print("test done")
