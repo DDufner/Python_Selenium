@@ -19,21 +19,16 @@ time.sleep(1)
 
 linkListLength = len(driver.find_elements(By.ID, "wikipedia-search-result-link"))
 
-#for link in linkListLength:
-#driver.find_element(By.ID, "wikipedia-search-result-link").click()
-
-#driver.find_elements(By.XPATH, "//id=wikipedia-search-result-link/ancestor::tr/following-sibling::*")
-#linkList = driver.find_elements(By.XPATH, "//div[id='wikipedia-search-result-link']/a")
 linkList = driver.find_elements(By.XPATH, "//a[contains(text(),'Ninja')]")
-
-#word = linkList.get_attribute('value')
-#print("word", word)
 
 for link in linkList:
     link.click()
-    print("window ID:", driver.current_window_handle)
-    print("window title:", driver.title)
-    
+windowIDs = driver.window_handles
+driver.switch_to.window(windowIDs[0])
+for wID in windowIDs:
+    driver.switch_to.window(wID)
+    print("page: ", driver.title)
+
 time.sleep(5)
 print("end")
 #assignment
