@@ -28,6 +28,7 @@ driver.switch_to.window(windowIDs[0])
 for wID in windowIDs:
     driver.switch_to.window(wID)
     print("page: ", driver.title)
+    driver.close()
 
 time.sleep(5)
 print("end")
@@ -35,6 +36,6 @@ print("end")
 #search in wiki box.
 #capture all links
 #click each link 
-#get window id of eac window tab
+#get window id of each window tab
 #go through all tabs and print titles
 #close all windows when done
