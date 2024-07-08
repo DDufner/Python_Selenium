@@ -17,6 +17,19 @@ dobMonth = "January"
 dobMonth3Char = "Jan"
 dobYear = "1990"
 
+def calendarDatePicker(day, month, year, dayXpath, monthXpath, yearXpath):
+    datepickerMonth = Select(driver.find_element(By.XPATH, monthXpath))
+    datepickerMonth.select_by_visible_text(month)
+    driver.find_element(By.XPATH, yearXpath).click()
+    driver.find_element(By.XPATH, "//option[contains(text(),'"+year+"')]").click()
+    allDates = driver.find_elements(By.XPATH,dayXpath)
+    for date in allDates:
+        if date.text == day:
+            date.click()
+            break 
+
+
+
 driver.find_element(By.ID, "product_3186").click()
 driver.find_element(By.ID, "travname").send_keys("firstname")
 driver.find_element(By.ID, "travlastname").send_keys("lastname")
@@ -56,6 +69,11 @@ for date in secondDobDates:
         break
 driver.find_element(By.ID, "sex2_1").click()
 """
+driver.find_element(By.ID, "fromcity").send_keys("abc")
+driver.find_element(By.ID, "tocity").send_keys("xyz")
+driver.find_element(By.ID, "departon").click()
+calendarDatePicker("15", "Nov", "2025","//table[@class='ui-datepicker-calendar']//td/a", "//select[@class='ui-datepicker-month']", "//select[@class='ui-datepicker-year']")
+
 
 time.sleep(5)
 print("done")
